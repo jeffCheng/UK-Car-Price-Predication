@@ -237,4 +237,25 @@ print(f"\nPredicted price for the example car: £{predicted_price:.2f}")
 ```
 
 
+```
+#!/usr/bin/env python
+# coding: utf-8
+import requests
+
+
+url = 'http://localhost:9696/predict'
+
+example_car = {
+    'mileage': 50000,
+    'registration_year': 2021,
+    'previous_owners': 2,
+    'engine': 2.0,
+    'doors': 5,
+    'seats': 5,
+    'service_history': True,
+}
+response = requests.post(url, json=example_car).json()
+print(f"\nPredicted price for the example car: £{response['price']:.2f}")
+```
+
  
